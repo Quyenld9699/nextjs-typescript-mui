@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
-import { imagePath } from '../../constants/imagePath';
+import { imagePath } from 'src/constants/imagePath';
 
 type Props = {};
 

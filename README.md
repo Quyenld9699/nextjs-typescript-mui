@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Create project
+
+```bash
+yarn create next-app --typescript
+```
 
 ## Getting Started
 
 First, run the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Note
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Using image in nextjs: use `<Image />` from `"next/image"` instead of using `<img />`
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+And `src` of image have to declare in `src/constants/imagePath.ts` such like below:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```ts
+import LOGO_FULL_HORIZONTAL_BLACK from 'public/logo/orchai_logo_full_horizontal_black.png';
+import LOGO_FULL_HORIZONTAL_WHITE from 'public/logo/orchai_logo_full_horizontal_white.png';
+import LOGO_SHORT_WHITE from 'public/logo/orchai_logo_short_white.png';
+import LOGO_SHORT_BLACK from 'public/logo/orchai_logo_short_black.png';
+import LOGO_FULL_VERTICAL_BLACK from 'public/logo/orchai_logo_full_vertical_black.png';
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+export const imagePath = {
+    LOGO_FULL_HORIZONTAL_BLACK,
+    LOGO_FULL_HORIZONTAL_WHITE,
+    LOGO_SHORT_WHITE,
+    LOGO_SHORT_BLACK,
+    LOGO_FULL_VERTICAL_BLACK,
+};
+```
 
-## Learn More
+using `imagePath` in other file:
 
-To learn more about Next.js, take a look at the following resources:
+```ts
+import Image from 'next/image';
+import { imagePath } from 'src/constants/imagePath';
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<Image src={imagePath.LOGO_FULL_HORIZONTAL_BLACK} alt="" title="" />;
+```
