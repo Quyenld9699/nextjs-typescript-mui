@@ -127,10 +127,8 @@ export function getThemeConfig(mode: THEME_MODE): ThemeOptions {
                 light: '#F0654226',
             },
             text: {
-                // primary: getColor('#FFFFFF', '#566474'),
                 primary: getColor('#FEFEF6', '#111C18'), // for content value
                 secondary: getColor('#FEFEF6', '#585F5A'), // for title of value
-                // disabled: getColor('', '')
             },
             action: {
                 selected: getColor('#021C39', '#6cb7d42b'),
