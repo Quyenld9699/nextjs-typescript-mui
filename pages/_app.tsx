@@ -1,12 +1,29 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import { DescriptionPage, GoogleSiteVerification, KeywordsForSEO, ThumbnailPage, TitlePage } from 'src/constants';
+import Script from 'next/script';
+import { DescriptionPage, GoogleAnalytics, GoogleSiteVerification, KeywordsForSEO, ThumbnailPage, TitlePage } from 'src/constants';
 import { ThemeCustomProvider } from 'src/contexts/theme-context';
 import Layout from 'src/Layout/Layout';
 
 export default function App({ Component, pageProps }: AppProps) {
     return (
         <>
+            <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${GoogleAnalytics}`} />
+
+            <Script
+                id="google-analytics"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                    __html: `
+                              window.dataLayer = window.dataLayer || [];
+                              function gtag(){dataLayer.push(arguments);}
+                              gtag('js', new Date());
+                              gtag('config', '${GoogleAnalytics}', {
+                                page_path: window.location.pathname,
+                              });
+                            `,
+                }}
+            />
             <Head>
                 <meta name="title" content={TitlePage} />
                 <meta itemProp="name" content={TitlePage} />

@@ -5,3 +5,4 @@ export const DescriptionPage = 'VChain,  Decentralized application development a
 export const KeywordsForSEO = 'VChain, vchain, vchain, v chain, Decentralized application, TOVCHAIN, platform, Blockchain, cosmos, oraichain, sifchain, staking, delegate';
 export const ThumbnailPage = imagePath.THUMBNAIL_PAGE;
 export const GoogleSiteVerification = '';
+export const GoogleAnalytics = '';
