@@ -2,7 +2,7 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Script from 'next/script';
 import { DescriptionPage, GoogleAnalytics, GoogleSiteVerification, KeywordsForSEO, ThumbnailPage, TitlePage } from 'src/constants';
-import { ThemeCustomProvider } from 'src/contexts/theme-context';
+import Providers from 'src/contexts/Providers';
 import Layout from 'src/Layout/Layout';
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -56,11 +56,11 @@ export default function App({ Component, pageProps }: AppProps) {
                 <meta name="google-site-verification" content={GoogleSiteVerification}></meta>
                 <title>{TitlePage}</title>
             </Head>
-            <ThemeCustomProvider>
+            <Providers>
                 <Layout>
                     <Component {...pageProps} />
                 </Layout>
-            </ThemeCustomProvider>
+            </Providers>
         </>
     );
 }
