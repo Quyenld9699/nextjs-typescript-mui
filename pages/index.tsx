@@ -7,7 +7,7 @@ export default function Home() {
         <>
             <main>
                 <Button variant="contained" onClick={() => notifySuccess('Em chào anh Quyền ạ!')}>
-                    Hello
+                    Hello jenkins
                 </Button>
                 Hello
                 <div></div>
