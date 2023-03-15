@@ -8,10 +8,11 @@ pipeline{
             }
         }
         stage("Build docker images") {
-            withDockerRegistry(credentialsId: 'docker-hub', url: 'https://index.docker.io/v1/') {
-                sh 'docker build -t quyenld9699/NextMuiTs:v1 .'
-                sh 'docker push quyenld9699/NextMuiTs:v1'
-
+            steps {
+                withDockerRegistry(credentialsId: 'docker-hub', url: 'https://index.docker.io/v1/') {
+                    sh 'docker build -t quyenld9699/NextMuiTs:v1 .'
+                    sh 'docker push quyenld9699/NextMuiTs:v1'
+                }
             }
         }
     }
