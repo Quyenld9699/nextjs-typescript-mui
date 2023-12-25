@@ -8,6 +8,7 @@ type Props = {
 };
 
 export default function Layout({ children }: Props) {
+    console.log('Hello world');
     return (
         <Box>
             <Header />
